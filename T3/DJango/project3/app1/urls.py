@@ -3,6 +3,6 @@ from app1.views import home,about,course
 
 urlpatterns = [
     path('',home),
-    path('about/',about),
-    path('course/',course),
+    path('about/',about,name='about'),
+    path('course/',course,name='course'),
 ]

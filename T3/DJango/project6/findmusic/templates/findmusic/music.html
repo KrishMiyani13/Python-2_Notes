@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Welcom</h1>
+    <form action="" method="post">
+        {% csrf_token %} 
+        <label for="song">Song</label>
+        <input type="text" name="song" id="song" class="song">
+
+        <label for="artist">artist</label>
+        <input type="text" name="artist" id="artist" class="artist">
+        
+        <label for="year">year</label>
+        <input type="text" name="year" id="year" class="year">
+
+        <label for="album">album</label>
+        <input type="text" name="album" id="album" class="album">
+
+        <button type="submit">submit</button>
+    </form>
+<hr>
+    <div>
+        <table border="5px"> 
+            <tr>
+                <th>song</th>
+                <th>Artist</th>
+                <th>year</th>
+                <th>Album</th>
+            </tr>
+            {% for music in music_records %}
+            <tr>
+                <td>{{music.song}}</td>
+                <td>{{music.artist}}</td>
+                <td>{{music.year}}</td>
+                <td>{{music.album}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

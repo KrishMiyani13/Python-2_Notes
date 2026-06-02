@@ -1,3 +1,5 @@
+{% extends "nav.html" %}
+{% block body %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,16 +8,55 @@
     <title>Course</title>
 </head>
 <body>
-    <nav>
+    <!-- <nav>
         <ul style="display: flex; justify-content: space-around;">
             <li ><a href="java/">Java</a></li>
             <li><a href="python/">Python</a></li>
         </ul>
         <ul>
             <li><a href="/app1/home">Back to Home</a></li>
+            <br>
+            {{re}}
+            
+            <br>
+            {% if re >= 85 %}
+                     <H3>You Got 50% off</H3>
+            {% elif re >= 50 %}
+            <h3>result {{re}}  : Enlroll python Course</h3>
+                   
+            {% else %}
+                    <h3>Not Enlrolled python</h3>
+            {% endif %}
+
+
         </ul>
-    </nav>
+    </nav> -->
+    <!-- {{data}}
+    {{data.std_id}}     -->
+    <table>
+       
+            
+    {% for i in data.std_id %}
+     <th>
+    <tr>
+        {{i}}
+        </tr>
+        <th>
+    {% endfor %}
+            
+    
+        
+    {% for j in data.std_name %}
+    <th>
+    <tr>
+        {{j}}
+        </tr>
+        </th>
+    {% endfor %}
     
     
+    </table>
 </body>
 </html>
+
+{% endblock body %}

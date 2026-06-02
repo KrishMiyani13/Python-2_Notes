@@ -14,11 +14,18 @@ def about(request):
         "std_id":std_id,
         "std_name":std_name
     }
-    data1 = {'course_name' : 'python',"durstion":'2','fees':2000,'result':90}
+    data1 = {'course_name' : 'python',"durstion":'2','fees':2000,'result':90,}
 
     return render (request,"about.html",{"data":data1})
 
 #course
 def course(request):
-    return render (request,"course.html")
+    std_id = [1,2,3,4,5]
+    std_name = ['A','B','C','D','E']
+    data = {
+        "std_id":std_id,
+        "std_name":std_name
+    }
+    result = 50
+    return render (request,"course.html",{'data':data})
 
