@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Update Course</title>
+
+```
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body{
+        min-height:100vh;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        background: linear-gradient(135deg,#667eea,#764ba2,#ff6b6b);
+        background-size:300% 300%;
+        animation: gradientMove 8s ease infinite;
+    }
+
+    @keyframes gradientMove{
+        0%{background-position:0% 50%;}
+        50%{background-position:100% 50%;}
+        100%{background-position:0% 50%;}
+    }
+
+    .container{
+        width:550px;
+        background:rgba(255,255,255,0.15);
+        backdrop-filter:blur(15px);
+        padding:30px;
+        border-radius:20px;
+        box-shadow:0 8px 32px rgba(0,0,0,0.2);
+        border:1px solid rgba(255,255,255,0.2);
+    }
+
+    h2{
+        text-align:center;
+        color:white;
+        margin-bottom:25px;
+        font-size:32px;
+    }
+
+    form p{
+        margin-bottom:15px;
+    }
+
+    label{
+        color:white;
+        font-weight:bold;
+        display:block;
+        margin-bottom:6px;
+    }
+
+    input,
+    textarea,
+    select{
+        width:100%;
+        padding:12px;
+        border:none;
+        border-radius:10px;
+        outline:none;
+        background:rgba(255,255,255,0.9);
+        font-size:15px;
+    }
+
+    textarea{
+        resize:vertical;
+    }
+
+    button{
+        width:100%;
+        padding:14px;
+        border:none;
+        border-radius:10px;
+        background:linear-gradient(45deg,#00c6ff,#0072ff);
+        color:white;
+        font-size:18px;
+        font-weight:bold;
+        cursor:pointer;
+        transition:0.3s;
+        margin-top:10px;
+    }
+
+    button:hover{
+        transform:translateY(-3px);
+        box-shadow:0 8px 20px rgba(0,114,255,0.4);
+    }
+
+    .back-link{
+        display:block;
+        text-align:center;
+        margin-top:18px;
+        color:white;
+        text-decoration:none;
+        font-weight:bold;
+    }
+
+    .back-link:hover{
+        color:#ffd700;
+    }
+
+    .errorlist{
+        color:#ffcccc;
+        list-style:none;
+        margin-top:5px;
+    }
+</style>
+```
+
+</head>
+<body>
+
+<div class="container">
+    <h2>📚 Update Course</h2>
+
+```
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit">Update Course</button>
+</form>
+
+<a href="/" class="back-link">🏠 Back to Home</a>
+```
+
+</div>
+
+</body>
+</html>

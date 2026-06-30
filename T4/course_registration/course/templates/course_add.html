@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Add Course</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+
+body{
+
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:
+    linear-gradient(
+        135deg,
+        #667eea,
+        #764ba2,
+        #f093fb,
+        #4facfe
+    );
+
+    background-size:300% 300%;
+    animation:bgmove 10s infinite alternate;
+
+}
+
+
+@keyframes bgmove{
+
+    0%{
+        background-position:left;
+    }
+
+    100%{
+        background-position:right;
+    }
+
+}
+
+
+
+.container{
+
+    width:560px;
+
+    background:rgba(255,255,255,0.95);
+
+    padding:35px;
+
+    border-radius:25px;
+
+    box-shadow:
+    0 20px 40px rgba(0,0,0,0.2);
+
+    border-top:8px solid #ff6b6b;
+
+}
+
+
+
+h2{
+
+    text-align:center;
+
+    font-size:32px;
+
+    color:#5b21b6;
+
+    margin-bottom:25px;
+
+}
+
+
+
+h2::before{
+
+    content:"🎓 ";
+
+}
+
+
+
+h2::after{
+
+    content:"";
+
+    display:block;
+
+    width:100px;
+
+    height:5px;
+
+    margin:12px auto;
+
+    border-radius:20px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #ff6b6b,
+        #feca57,
+        #48dbfb
+    );
+
+}
+
+
+
+form p{
+
+    margin-bottom:18px;
+
+}
+
+
+
+label{
+
+    display:block;
+
+    font-weight:700;
+
+    color:#374151;
+
+    margin-bottom:7px;
+
+}
+
+
+
+input,
+textarea,
+select{
+
+
+    width:100%;
+
+    padding:13px;
+
+    border-radius:12px;
+
+    border:2px solid #ddd6fe;
+
+    background:#faf5ff;
+
+    font-size:15px;
+
+    transition:.3s;
+
+
+}
+
+
+
+input:hover,
+textarea:hover,
+select:hover{
+
+    border-color:#f472b6;
+
+}
+
+
+
+input:focus,
+textarea:focus,
+select:focus{
+
+    outline:none;
+
+    border-color:#8b5cf6;
+
+    background:white;
+
+    box-shadow:
+    0 0 12px rgba(139,92,246,.3);
+
+}
+
+
+
+textarea{
+
+    height:100px;
+
+    resize:none;
+
+}
+
+
+
+
+button{
+
+
+    width:100%;
+
+    padding:15px;
+
+    margin-top:15px;
+
+    border:none;
+
+    border-radius:15px;
+
+
+    background:
+
+    linear-gradient(
+        90deg,
+        #ff6b6b,
+        #ff9f43,
+        #feca57
+    );
+
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.4s;
+
+
+}
+
+
+
+button:hover{
+
+
+    transform:translateY(-5px) scale(1.02);
+
+
+    box-shadow:
+
+    0 12px 25px rgba(255,159,67,.5);
+
+
+}
+
+
+
+.back-link{
+
+
+    display:block;
+
+    text-align:center;
+
+    margin-top:20px;
+
+    text-decoration:none;
+
+    color:#2563eb;
+
+    font-weight:bold;
+
+
+}
+
+
+
+.back-link:hover{
+
+
+    color:#db2777;
+
+}
+
+
+
+
+.errorlist{
+
+    color:#dc2626;
+
+    list-style:none;
+
+}
+
+
+
+/* Mobile */
+
+@media(max-width:600px){
+
+.container{
+
+    width:90%;
+
+    padding:25px;
+
+}
+
+
+h2{
+
+    font-size:26px;
+
+}
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<h2>Add New Course</h2>
+
+
+
+<form method="POST">
+
+{% csrf_token %}
+
+{{ form.as_p }}
+
+
+<button type="submit">
+
+🚀 Save Course
+
+</button>
+
+
+</form>
+
+
+
+<a href="/" class="back-link">
+
+🏠 Back to Home
+
+</a>
+
+
+</div>
+
+
+
+</body>
+
+</html>

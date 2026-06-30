@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Details</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 60%;
+            margin: 50px auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2575fc;
+            margin-bottom: 30px;
+        }
+
+        .detail {
+            font-size: 20px;
+            margin: 15px 0;
+            padding: 12px;
+            border-left: 5px solid #2575fc;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+        }
+
+        .label {
+            font-weight: bold;
+            color: #6a11cb;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #2575fc;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+            background-color: #6a11cb;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Course Details</h1>
+
+        <div class="detail">
+            <span class="label">Course Name:</span> {{ courses.course_name }}
+        </div>
+
+        <div class="detail">
+            <span class="label">Course Code:</span> {{ courses.course_code }}
+        </div>
+
+        <div class="detail">
+            <span class="label">Description:</span> {{ courses.description }}
+        </div>
+
+        <div class="detail">
+            <span class="label">Instructor:</span> {{ courses.instructor }}
+        </div>
+
+        <div class="detail">
+            <span class="label">Duration:</span> {{ courses.duration }}
+        </div>
+
+        <div class="detail">
+            <span class="label">Credit:</span> {{ courses.credit }}
+        </div>
+
+        <a href="/" class="back-btn">← Back to Home</a>
+    </div>
+
+</body>
+</html>

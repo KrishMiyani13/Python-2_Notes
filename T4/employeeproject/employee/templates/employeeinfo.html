@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Information </title>
+    <style>
+    body{
+        font-family: Arial, sans-serif;
+        background-color: #f4f6f9;
+        padding: 20px;
+    }
+
+    table{
+        width: 100%;
+        border-collapse: collapse;
+        background-color: #fff;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    th{
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px;
+        text-align: left;
+    }
+
+    td{
+        padding: 12px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    tr:nth-child(even){
+        background-color: #f9f9f9;
+    }
+
+    tr:hover{
+        background-color: #f1f1f1;
+    }
+
+    a{
+        text-decoration: none;
+        padding: 6px 12px;
+        border-radius: 5px;
+        color: white;
+        margin-right: 5px;
+    }
+
+    a:first-child{
+        background-color: #2196F3; /* Edit */
+    }
+
+    a:last-child{
+        background-color: #f44336; /* Delete */
+    }
+
+    a:hover{
+        opacity: 0.8;
+    }
+</style>
+
+</head>
+<body>
+    <h1>Employee Information</h1>
+    
+    <h4>Name: {{employee.name}}</h4>
+    <h4>ID: {{employee.id}}</h4>
+    <h4>Email: {{employee.email}}</h4>
+    <h4>Department: {{employee.department}}</h4>
+    <h4>Designation: {{employee.designation}}</h4>
+    <h4>Salary: {{employee.salary}}</h4>
+</body>
+</html>

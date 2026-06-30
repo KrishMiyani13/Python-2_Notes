@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Management</title>
+
+```
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family:'Poppins',sans-serif;
+    }
+
+    body{
+        min-height:100vh;
+        background:linear-gradient(135deg,#667eea,#764ba2);
+        padding:40px 20px;
+    }
+
+    h1{
+        text-align:center;
+        color:white;
+        font-size:42px;
+        margin-bottom:30px;
+        text-shadow:2px 2px 10px rgba(0,0,0,0.3);
+    }
+
+    .container{
+        width:95%;
+        max-width:1300px;
+        margin:auto;
+        background:rgba(255,255,255,0.15);
+        backdrop-filter:blur(15px);
+        -webkit-backdrop-filter:blur(15px);
+        border-radius:20px;
+        padding:25px;
+        box-shadow:0 8px 32px rgba(0,0,0,0.2);
+        border:1px solid rgba(255,255,255,0.2);
+    }
+
+    .top-bar{
+        display:flex;
+        justify-content:flex-end;
+        margin-bottom:20px;
+    }
+
+    .add-btn{
+        text-decoration:none;
+        color:white;
+        background:linear-gradient(45deg,#00c853,#64dd17);
+        padding:12px 24px;
+        border-radius:50px;
+        font-weight:600;
+        transition:0.3s;
+        box-shadow:0 5px 15px rgba(0,200,83,0.4);
+    }
+
+    .add-btn:hover{
+        transform:translateY(-3px);
+        box-shadow:0 10px 25px rgba(0,200,83,0.6);
+    }
+
+    table{
+        width:100%;
+        border-collapse:collapse;
+        overflow:hidden;
+        border-radius:15px;
+        background:white;
+    }
+
+    thead{
+        background:linear-gradient(45deg,#2196f3,#673ab7);
+        color:white;
+    }
+
+    th{
+        padding:16px;
+        text-align:left;
+        text-transform:uppercase;
+        letter-spacing:0.5px;
+        font-size:14px;
+    }
+
+    td{
+        padding:14px;
+        border-bottom:1px solid #eaeaea;
+        color:#444;
+    }
+
+    tbody tr:nth-child(even){
+        background:#f8f9ff;
+    }
+
+    tbody tr:hover{
+        background:#eef4ff;
+        transition:0.3s;
+    }
+
+    td:first-child{
+        font-weight:600;
+        color:#673ab7;
+    }
+
+    .action-btn{
+        text-decoration:none;
+        color:white;
+        padding:8px 12px;
+        border-radius:6px;
+        font-size:13px;
+        font-weight:600;
+        margin-right:5px;
+        display:inline-block;
+        transition:0.3s;
+    }
+
+    .view-btn{
+        background:#00bcd4;
+    }
+
+    .view-btn:hover{
+        background:#0097a7;
+    }
+
+    .update-btn{
+        background:#ff9800;
+    }
+
+    .update-btn:hover{
+        background:#f57c00;
+    }
+
+    .delete-btn{
+        background:#f44336;
+    }
+
+    .delete-btn:hover{
+        background:#d32f2f;
+    }
+
+    .empty-row{
+        text-align:center;
+        color:#888;
+        font-size:16px;
+        padding:20px;
+    }
+
+    @media(max-width:900px){
+        .container{
+            overflow-x:auto;
+        }
+
+        table{
+            min-width:900px;
+        }
+
+        h1{
+            font-size:30px;
+        }
+    }
+</style>
+```
+
+</head>
+<body>
+
+```
+<h1>📚 Course Management System</h1>
+
+<div class="container">
+
+    <div class="top-bar">
+        <a href="add/" class="add-btn">+ Add New Course</a>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Course Name</th>
+                <th>Course Code</th>
+                <th>Description</th>
+                <th>Instructor</th>
+                <th>Duration</th>
+                <th>Credits</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for course in courses %}
+            <tr>
+                <td>{{ course.course_name }}</td>
+                <td>{{ course.course_code }}</td>
+                <td>{{ course.description }}</td>
+                <td>{{ course.instructor }}</td>
+                <td>{{ course.duration }}</td>
+                <td>{{ course.credit }}</td>
+                <td>
+                    <a href="course_details/{{ course.id }}" class="action-btn view-btn">View</a>
+                    <a href="update/{{ course.id }}" class="action-btn update-btn">Update</a>
+                    <a href="delete/{{ course.id }}" class="action-btn delete-btn">Delete</a>
+                </td>
+            </tr>
+
+            {% empty %}
+            <tr>
+                <td colspan="7" class="empty-row">
+                    No courses available.
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+
+</div>
+```
+
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body{
+        font-family: Arial, sans-serif;
+        background-color: #f4f6f9;
+        padding: 20px;
+    }
+
+    table{
+        width: 100%;
+        border-collapse: collapse;
+        background-color: #fff;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    th{
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px;
+        text-align: left;
+    }
+
+    td{
+        padding: 12px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    tr:nth-child(even){
+        background-color: #f9f9f9;
+    }
+
+    tr:hover{
+        background-color: #f1f1f1;
+    }
+
+    a{
+        text-decoration: none;
+        padding: 6px 12px;
+        border-radius: 5px;
+        color: white;
+        margin-right: 5px;
+    }
+
+    a:nth-child(1) {
+    background-color: #2196F3;
+}
+
+a:nth-child(2) {
+    background-color: #ff9800;
+}
+
+a:nth-child(3) {
+    background-color: #f44336;
+}
+
+    a:hover{
+        opacity: 0.8;
+    }
+</style>
+
+</head>
+<body>
+    <form action="" method="post">
+        {% csrf_token %}
+        <fieldset>
+            <legend><h1>Employee Form</h1></legend>
+
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" name="name" placeholder="Enter Name"> <br><br>
+            </div>
+            <div>
+                <label for="name">Id : </label>
+                <input type="number" name="id" id="id" placeholder="Enter ID"> <br><br>
+            </div>
+            <div>
+                <label for="email">Email : </label>
+                <input type="email" name="email" id="email" placeholder="abc@gamail.com"> <br><br>
+            </div>
+            <div>
+                <label for="department">Department : </label>
+                <input type="text" name="department" id="department" placeholder="Enter Department"> <br><br>
+            </div>
+            <div>
+                <label for="designation">Designation : </label>
+                <input type="text" name="designation" id="designation" placeholder="Enter Designation"> <br><br>
+            </div>
+            <div>
+                <label for="salary">Salary : </label>
+                <input type="number" name="salary" id="salary" placeholder="Enter Salary"> <br><br>
+            </div>
+            <div>
+                <button type="submit">Search</button>
+            </div>
+        </fieldset>
+    </form>
+
+    <table border="1">
+        <thead>
+            
+            <tr>
+                <th>Name</th>
+                <th>Id</th>
+                <th>Email</th>
+                <th>Derpartment</th>
+                <th>Designation</th>
+                <th>Salary</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+            {% for i in employees %}
+        <tbody>
+
+            <tr>
+                <td>{{ i.name }}</td>
+                <td>{{ i.id }}</td>
+                <td>{{ i.email }}</td>
+                <td>{{ i.department }}</td>
+                <td>{{ i.designation }}</td>
+                <td>{{ i.salary }}</td>
+                <td><a href="employeeinfo/{{ i.id }}">Views</a>
+                    <a href="update_employee/{{ i.id }}">Update</a>
+                    <a href="delete_employee/{{ i.id }}">Delete</a></td>
+                
+                   
+            </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+</body>
+</html>
