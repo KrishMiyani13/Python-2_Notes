@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    {% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+    {% endblock %}
+</head>
+<body>
+    {% block content %}
+    <div class="signup-container">
+        <h2>Signup</h2>
+        <form method="POST">
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <button type="submit">Signup</button>
+        </form>
+        <p>
+            Already have an account?
+            <a href="{% url 'login' %}">Login</a>
+        </p>
+    </div>
+    {% endblock %}
+</body>
+</html>
