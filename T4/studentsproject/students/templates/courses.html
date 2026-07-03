@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course</title>
+    {% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/course.css' %}">
+    {% endblock %}
+
+</head>
+
+<body>
+    {% block content %}
+    <h1 class="title">Courses</h1>
+    <ul class="course-list">
+        {% for course in courses %}
+        <li class="course-item">{{ course.name }}</li>
+        {% empty %}
+        <li>No courses</li>
+        {% endfor %}
+    </ul>
+    {% endblock %}
+</body>
+</html>

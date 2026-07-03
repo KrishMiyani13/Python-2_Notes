@@ -1,24 +1,23 @@
-{% extends "base.html" %} 
-{% load static %} 
-<!DOCTYPE html> 
-<html lang="en"> 
-<head> 
-    <meta charset="UTF-8"> 
-    <meta name="viewport" content="width=device-width, 
-initial-scale=1.0"> 
-    <title>Add Student</title> 
-    {% block extra_css %} 
-    <link rel="stylesheet" href="{% static 'css/student/add_student.css' %}"> 
-    {% endblock %} 
-</head> 
-<body> 
-    {% block content %} 
-        <form action="" method="POST"> 
-            {% csrf_token %} 
-            {{form.as_p}} 
-            <button type="submit">Add Student</button> 
-        </form> 
-        <a href="{% url 'home' %}" class="back-btn">← Back</a> 
-    {% endblock %} 
-</body> 
-</html> 
+{% extends "base.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Student</title>
+    {% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/student/add_student.css' %}">
+    {% endblock %}
+</head>
+<body>
+    {% block content %}
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit">Add Student</button>
+        </form>
+        <a href="{% url 'home' %}" class="back-btn">← Back</a>
+    {% endblock %}
+</body>
+</html>

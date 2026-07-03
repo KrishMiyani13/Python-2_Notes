@@ -1,61 +1,62 @@
-{% extends "base.html" %} 
-{% load static %} 
-<!DOCTYPE html> 
-<html lang="en"> 
- 
-<head> 
-    <meta charset="UTF-8"> 
-    <meta name="viewport" content="width=device-width, 
-initial-scale=1.0"> 
-    <title>View Students</title> 
-    {% block extra_css %} 
-    <link rel="stylesheet" href="{% static 'css/student/view_student.css' %}"> 
-    {% endblock %} 
-</head> 
- 
-<body> 
- 
-    {% block content %} 
-    <div class="student-list"> 
-        <h2>Student List</h2> 
-        <div class="action-buttons"> 
-            <a href="{% url 'home' %}" class="back-btn">← Back</a> 
-            <a href="{% url 'add_student' %}" class="add-btn">+ Add 
-Student</a> 
-        </div> 
-        <table> 
-            <thead> 
-                <tr> 
-                    <th>Name</th> 
-                    <th>Email</th> 
-                    <th>Enrollment No.</th> 
-                    <th>Phone Number</th> 
-                    <th>Action</th> 
-                </tr> 
-12          PRITU PATEL 
-            </thead> 
-            <tbody> 
-                {% for student in students %} 
-                <tr> 
-                    <td>{{ student.name }}</td> 
-                    <td>{{ student.email }}</td> 
-                    <td>{{ student.enrollment_number }}</td> 
-                    <td>{{ student.phn_number }}</td> 
-                    <td> 
-                        <a href="{% url 'update_student' student.id %}" 
-class="edit-btn">Update</a> 
-                        <a href="{% url 'delete_student' student.id %}" 
-class="delete-btn">Delete</a> 
-                    </td> 
-                </tr> 
-                {% empty %} 
-                <tr> 
-                    <td colspan="6">No Students Available</td> 
-                </tr> 
-                {% endfor %} 
-            </tbody> 
-        </table> 
-    </div> 
-    {% endblock %} 
-</body> 
-</html> 
+{% extends "base.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Students</title>
+    {% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/student/view_student.css' %}">
+    {% endblock %}
+</head>
+
+<body>
+
+    {% block content %}
+    <div class="student-list">
+        <h2>Student List</h2>
+        <div class="action-buttons">
+            <a href="{% url 'home' %}" class="back-btn">← Back</a>
+            <a href="{% url 'add_student' %}" class="add-btn">+ Add Student</a>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Enrollment No.</th>
+                    <th>Phone Number</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for student in students %}
+                <tr>
+                    <td>{{ student.name }}</td>
+                    <td>{{ student.email }}</td>
+                    <td>{{ student.enrollment_number }}</td>
+                    <td>{{ student.phn_number }}</td>
+                    <td>{% for course in student.courses.all %}
+                        {{course.name}}
+                        {% empty %}
+                            No courses
+                        {% endfor %}
+                    </td>
+                    <td>
+                        <a href="{% url 'update_student' student.id %}" class="edit-btn">Update</a>
+                        <a href="{% url 'delete_student' student.id %}" class="delete-btn">Delete</a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="6">No Students Available</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% endblock %}
+</body>
+</html>
