@@ -28,6 +28,7 @@
                     <th>Email</th>
                     <th>Enrollment No.</th>
                     <th>Phone Number</th>
+                    <th>Courses</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -38,10 +39,11 @@
                     <td>{{ student.email }}</td>
                     <td>{{ student.enrollment_number }}</td>
                     <td>{{ student.phn_number }}</td>
-                    <td>{% for course in student.courses.all %}
-                        {{course.name}}
+                    <td>
+                        {% for course in student.course.all %}
+                            {{course.name}}
                         {% empty %}
-                            No courses
+                            no course
                         {% endfor %}
                     </td>
                     <td>

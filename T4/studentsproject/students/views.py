@@ -3,6 +3,8 @@ from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from .forms import StudentForm
 from .models import Student,Course
+from rest_framework import generics
+from .serializers import CourseSerializer,StudentSerializer
 
 def signup(request):
 
@@ -69,7 +71,16 @@ def delete_student(request, id):
 
 def courses(request):
     courses = Course.objects.all()
-    return render(request, "courses.html", {'courses': courses})
+    return render(request,'courses.html',{'courses':courses})
 
-class CourseListCreateAPIView(generics.ListCreateAPIview):
-    
+class CourseListCreateAPIView(generics.ListCreateAPIView):
+    queryset = Course.objects.all()
+    serializer_class = CourseSerializer
+
+class StudentListCreateAPIView(generics.ListCreateAPIView):
+    queryset = Course.objects.all()
+    serializer_class = StudentSerializer
+
+class CourseRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Course.objects.all()
+    serializer_class = CourseSerializer
